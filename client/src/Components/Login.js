@@ -10,10 +10,10 @@ function Login({ setIsLoggedIn, isLoggedIn }) {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password }, { withCredentials: true })
+        axios.post("https://complete-intenship-task-backend.vercel.app/login", { email, password }, { withCredentials: true })
             .then(result => {
                 if (result.data === "Success") {
-                    axios.get('http://localhost:3001/user', { withCredentials: true })
+                    axios.get('https://complete-intenship-task-backend.vercel.app/user', { withCredentials: true })
                         .then(response => {
                             if (response.data.user) {
                               setIsLoggedIn(true);
