@@ -14,7 +14,7 @@ function Profile() {
 
     // Fetch user data if required (e.g., upon page load)
     useEffect(() => {
-        axios.get('https://complete-intenship-task-backend.vercel.app/user', { withCredentials: true })
+        axios.get('http://localhost:3001/user', { withCredentials: true })
             .then(response => {
                 if (response.data.user) {
                     setName(response.data.user.name);
@@ -53,7 +53,7 @@ function Profile() {
         if (image) formData.append('image', image);
 
         try {
-            const response = await axios.post('https://complete-intenship-task-backend.vercel.app/profile', formData, {
+            const response = await axios.post('http://localhost:3001/profile', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 withCredentials: true,
             });
